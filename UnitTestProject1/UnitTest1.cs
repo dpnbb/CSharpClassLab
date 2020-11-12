@@ -16,14 +16,14 @@ namespace UnitTestProject1
             ResponseModel responseModel = newsService.AddNewsClassify(new AddNewsClassify { Name = "军事", Remark = "军事", Sort = 1 });
             System.Console.WriteLine(responseModel.Result);
         }
-        [TestMethod]
-        public void TestMethod2()
-        {
-            Db_Help db = new Db_Help();
-            NewsService newsService = new NewsService(db);
-            CommentService commentService = new CommentService(db, newsService);
-            ResponseModel responseModel = commentService.GetCommentList(c => true);
-            System.Console.WriteLine(responseModel.Result);
-        }
+        //[TestMethod]
+        //public void TestMethod2()
+        //{
+        //    Db_Help db = new Db_Help();
+        //    NewsService newsService = new NewsService(db);
+        //    CommentService commentService = new CommentService(db, newsService);
+        //    ResponseModel responseModel = commentService.GetCommentList(c => true);
+        //    System.Console.WriteLine(responseModel.Result);
+        //}
     }
 }

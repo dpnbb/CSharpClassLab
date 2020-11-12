@@ -356,8 +356,7 @@ namespace NewsPublish.Service
         /// <returns></returns>
         public ResponseModel GetNewsCommentList(Expression<Func<News, bool>> where, int topCount)
         {
-            var newsids = _db.NewsComment.OrderByDescending(c => c.AddTime).GroupBy(c => c.NewsID).Select(c => c.Key).Take(topCount);
-            var list = _db.News.Include("NewsClassify").Include("NewsComment").Where(c => newsids.Contains(c.ID)).Where(where).OrderByDescending(c => c.PublishDate);
+            var list = _db.News.Include("NewsClassify").Include("NewsComment").Where(where).OrderByDescending(c => c.PublishDate);
             var response = new ResponseModel
             {
                 Code = 200,

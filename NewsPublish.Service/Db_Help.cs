@@ -15,10 +15,8 @@ namespace NewsPublish.Service
             new LoggerFactory(new[] { new DebugLoggerProvider() });
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string ConnectionString = @"Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=web;Data Source=LAPTOP-SBGGLEHV\SQLEXPRESS;";
-            base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseLoggerFactory(loggerFactory);
-            optionsBuilder.UseSqlServer(ConnectionString, b => b.UseRowNumberForPaging());
+            string ConnectionString = @"Server=127.0.0.1;Database=web; User=test;Password=test;";
+            optionsBuilder.UseMySql(ConnectionString);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
